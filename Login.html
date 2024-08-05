@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+    <form id="loginForm">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="enter your username ..." required>
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        console.log('Attempting login with:', { username, password });
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        console.log('Users in localStorage:', users);
+
+        let userFound = false;
+
+        for (let i = 0; i < users.length; i++) {
+            const user = users[i];
+            console.log(`Checking user: ${user.username}, ${user.password}`);
+
+            if (user.username === username && user.password === password) {
+                userFound = true;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log('Login successful for user:', user);
+                alert('Login Successful');
+                window.location.href = 'dashboard.html';
+                break;
+            }
+        }
+
+        if (!userFound) {
+            console.log('Login failed. Invalid username or password.');
+            alert('Invalid username or password');
+        }
+    });
+</script>
+</html>
