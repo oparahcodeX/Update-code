@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+    <form id="RegisterForm">
+        <h2>Register For Js class</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="enter here ..." required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="enter your email here ..." required>
+        <br>
+        <label for="phone">Phone:</label>
+        <input type="number" id="phone" name="phone" placeholder="enter your phone tel ..." required>
+        <br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="enter your username ..." required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    document.getElementById('RegisterForm').addEventListener('submit', function(event){
+        event.preventDefault();
+        const user = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+        }
+
+        console.log('Registering user:', user);
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+        console.log('Users in localStorage:', users);
+        alert('Registered Successfully');
+        window.location.href = 'Login.html';
+    });
+</script>
+</html>
