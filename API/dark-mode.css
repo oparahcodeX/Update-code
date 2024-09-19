@@ -1,0 +1,20 @@
+/* Dark Mode Styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#themeToggle {
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1 - Dark/Light Mode</title>
+
+    <!-- Preload both stylesheets -->
+    <link rel="preload" href="light-mode.css" as="style">
+    <link rel="preload" href="dark-mode.css" as="style">
+
+    <!-- Small CSS to prevent the white flash -->
+    <style>
+        body {
+            visibility: hidden;
+        }
+    </style>
+
+    <!-- Inline script to apply the theme before the page is rendered -->
+    <script>
+    </script>
+</head>
+<body>
+    <h1>Welcome to Page 1</h1>
+    <p>This is the first page with dark and light mode support.</p>
+
+    <button id="themeToggle">Toggle Dark/Light Mode</button>
+
+    <nav>
+        <a href="page2.html">Go to Page 2</a>
+    </nav>
+
+    <!-- Main JavaScript for theme toggle -->
+    <script src="theme.jsx"></script>
+    <script src="extratheme.jsx"></script>
+</body>
+</html>

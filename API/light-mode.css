@@ -1,0 +1,24 @@
+/* Light Mode Styles */
+body {
+    background-color: rgb(236, 224, 224);
+    color: black;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#themeToggle {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+
+#red{
+    color: green;
+}
