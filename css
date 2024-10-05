@@ -12,15 +12,18 @@
     font-family: 'Prompt', sans-serif;
 	
 		
-	}
+	} /*starting from above here is your android mobile by default*/
 
+       @media (min-width: 390px) {} /* for iphone 12 */
+       @media (min-width: 412px) {} /* samsung */
+       @media (min-width: 414px) {} /* iphone xr */ 
+       @media (min-width: 430px) {} /* iphone 14 pro */
 
-       @media (min-width: 412px) {}
+       @media (min-width: 640px) {} /* Samsung fold */
 
-        @media (min-width: 640px) {}
+       @media (min-width: 768px) {} /* ipad mini */
+       @media (min-width: 820px) {} /* ipad air */
 
-        @media (min-width: 768px) {}
-
-        @media (min-width: 1024px) {}
+       @media (min-width: 1024px) {} /* ipad pro */
     
-        @media (min-width: 1280px) {}
+       @media (min-width: 1280px) {} /* main laptop */
