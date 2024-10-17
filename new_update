@@ -1,0 +1,140 @@
+const header = document.querySelector('header');
+
+function stickyNavbar() {
+    header.classList.toggle('scrolled', window.pageYOffset > 0);
+}
+
+stickyNavbar();
+
+window.addEventListener('scroll', stickyNavbar);
+
+
+function setActiveLink(LinkClass, Activeclass){
+    const currentPath = window.location.pathname.split('/').pop() //Home.html, Contact, Blog
+    const Nav_link = document.querySelectorAll('.' + LinkClass)
+
+    Nav_link.forEach(link =>{
+       const LinkName = link.getAttribute('href')
+       if(LinkName === currentPath){
+          link.classList.add(Activeclass)
+       } else{
+        link.classList.remove(Activeclass)
+       }
+    })
+}
+
+
+
+
+window.onload = function(){
+setActiveLink('nav-link', 'active')
+}
+
+
+
+
+
+let isReloaded = false;
+
+document.getElementById('loadMoreBtn').addEventListener('click', function() {
+  const items = document.querySelectorAll('.content-item');
+  const icon = this.querySelector('.material-icons');
+  
+  if (!isReloaded) {
+    // Show Item 2 and Item 3
+    items[1].classList.remove('hidden');
+    items[2].classList.remove('hidden');
+    
+    // Change icon to "cached"
+    icon.textContent = 'cached';
+    isReloaded = true;
+  } else {
+    // Hide Item 2 and Item 3
+    items[1].classList.add('hidden');
+    items[2].classList.add('hidden');
+    
+    // Change icon back to "sync"
+    icon.textContent = 'sync';
+    isReloaded = false;
+  }
+});
+
+
+
+
+
+let currentSlide = 0;
+let slides = [];
+let navButtons = [];
+let startX = 0;
+let endX = 0;
+const threshold = 100; // Minimum distance for a swipe to be recognized
+
+// Initialize carousel on page load
+document.addEventListener('DOMContentLoaded', () => {
+    slides = document.querySelectorAll('.slide');
+    navButtons = document.querySelectorAll('.nav-buttons button');
+    
+    const carouselContainer = document.getElementById('carousel-container');
+
+    // Load the initial slide
+    loadSlide(currentSlide);
+
+    // Add swipe event listeners
+    carouselContainer.addEventListener('touchstart', handleTouchStart);
+    carouselContainer.addEventListener('touchend', handleTouchEnd);
+});
+
+// Function to load the selected slide
+function loadSlide(slideIndex) {
+    // Hide all slides and deactivate buttons
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        slide.querySelector('.slide-text').classList.remove('active');
+        navButtons[index].classList.remove('active');
+    });
+
+    // Show the selected slide and activate the corresponding button
+    if (slideIndex >= slides.length) currentSlide = 0;
+    if (slideIndex < 0) currentSlide = slides.length - 1;
+
+    const activeSlide = slides[currentSlide];
+    activeSlide.classList.add('active');
+    navButtons[currentSlide].classList.add('active');
+
+    // Delay the text animation to sync with the image change
+    setTimeout(() => {
+        activeSlide.querySelector('.slide-text').classList.add('active');
+    }, 500);  // Delay to sync with text fade-in
+}
+
+// Function to change the slide based on swipe
+function changeSlide(step) {
+    currentSlide += step;
+    loadSlide(currentSlide);
+}
+
+// Function to jump to a specific slide when a button is clicked
+function jumpToSlide(index) {
+    currentSlide = index;
+    loadSlide(currentSlide);
+}
+
+// Handle touch start event (swipe start)
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+}
+
+// Handle touch end event (swipe end)
+function handleTouchEnd(event) {
+    endX = event.changedTouches[0].clientX;
+
+    // Determine the direction of the swipe
+    if (startX - endX > threshold) {
+        // Swipe left (next slide)
+        changeSlide(1);
+    } else if (endX - startX > threshold) {
+        // Swipe right (previous slide)
+        changeSlide(-1);
+    }
+}
