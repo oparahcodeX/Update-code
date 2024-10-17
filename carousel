@@ -1,0 +1,101 @@
+ 
+    .carousel-container{
+        height: 28rem;
+    width: 78rem;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 6rem;
+    margin-left: 0.5rem;
+    background-color: #000104a5;
+    box-shadow: 0 0 3px rgb(0, 0, 0, 0.4);
+    position: absolute;
+    }
+
+    
+                                     
+.slide {
+    display: none; /* Hide all slides by default */
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.slide.active {
+    display: block; /* Show active slide */
+}
+.slide .slide-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.slide .slide-text {
+    position: absolute;
+  
+    position: relative;
+    height: 28rem;
+    width: 156rem;
+    padding-left:81rem;
+   padding-top: 7rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.slide .slide-text h2{
+    font-size: 40px;
+}
+
+.slide .slide-text p{
+    font-size: 16px;
+    
+}
+.slide .slide-text button{
+    background: rgba(0, 0, 0, 0.6);
+    border: 0.2px solid #fff;
+    height: 2rem;
+    width: 12rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+
+}
+.slide .slide-text button a{
+    color: #fff;
+    font-size: 14px;
+
+}
+.slide .slide-text.active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.nav-buttons {
+    position: absolute;
+    bottom: 20px;
+    width: 18rem;
+    background-color: transparent;
+   overflow: hidden;
+   bottom: 20px;
+   left: 45%;
+   height: 5rem;
+   display: inline-flex;
+   padding-top: 1.5rem;
+
+}
+.nav-buttons button {
+    background: rgba(0, 0, 0, 0.6);
+    border: 0.2px solid #fff;
+    margin-left: 0.3rem;
+    cursor: pointer;
+    width: 16rem;
+    height: 2rem;
+    position: relative;
+    font-size: 15px;
+    color: white;
+}
+.nav-buttons button.active {
+    background-color: #333;
+    color: white;
+   
+}
