@@ -1,0 +1,45 @@
+
+    <div class="carousel-container" id="carousel-container">
+        <!-- Slide 1 -->
+        <div class="slide active">
+          <div class="slide-image" style="background-image: url('ExploreImage/nba.webp');"></div>
+          <div class="slide-text">
+            <h2>NBA news</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, suscipit minima. 
+              <br>Laboriosam dignissimos eaque ut dolor molestiae ducimus nobis maxime, 
+              <br>excepturi non alias odit eligendi. Fuga consequuntur dolores repudiandae.
+            </p>
+            <button><a href="#">Read More</a></button>
+          </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+          <div class="slide-image" style="background-image: url('ExploreImage/nike.webp');"></div>
+          <div class="slide-text">Vivamus luctus eros  convallis ultricies.</div>
+      </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide-image" style="background-image: url('ExploreImage/nba.webp');"></div>
+          <div class="slide-text">Pellentesque habitant morbi tristique senectus et netus.</div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+          <div class="slide-image" style="background-image: url('ExploreImage/nba.webp');"></div>
+          <div class="slide-text">Donec vehicula cursus vestibulum.</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button onclick="jumpToSlide(0)" class="active">Sports</button>
+        <button onclick="jumpToSlide(1)">Tech</button>
+        <button onclick="jumpToSlide(2)">Politics</button>
+        <button onclick="jumpToSlide(3)">Fashion</button>
+        
+    </div>
+
+
+
+    </div>
